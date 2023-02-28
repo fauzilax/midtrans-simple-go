@@ -41,11 +41,11 @@ func main() {
 	e.POST("/create", func(c echo.Context) error {
 		// Retrieve the user's location
 		var s = snap.Client{}
-		s.New("**your Midtrans Server Key**", midtrans.Sandbox)
+		s.New("your Midtrans Server Key", midtrans.Sandbox)
 		// Use to midtrans.Production if you want Production Environment (accept real transaction).
 		// 2. Initiate Snap request param
 		orderID := GenerateRandomString()
-		orderID = "FAUZISHOP-ORDER-ID-" + orderID
+		orderID = "FAUZISHOP-ORDER-ID-" + orderID // replace FAUZISHOP-ORDER-ID to your name order id
 		req := &snap.Request{
 			TransactionDetails: midtrans.TransactionDetails{
 				OrderID:  orderID,
@@ -66,7 +66,7 @@ func main() {
 		if snapResp.RedirectURL == "" {
 			return c.JSON(http.StatusInternalServerError, map[string]interface{}{"message": "Payment Error, error when creating transaction payment to midtrans"})
 		}
-		log.Println(snapResp)
+		// log.Println(snapResp)
 		return c.JSON(http.StatusOK, map[string]interface{}{
 			"name":             "Fauzi Sofyan",
 			"email":            "fauzi@example.com",
@@ -79,9 +79,9 @@ func main() {
 	})
 	e.PUT("/update", func(c echo.Context) error {
 		var z = coreapi.Client{}
-		z.New("SB-Mid-server-nP8oOrzwnFwp8UTSeDXEhm7v", midtrans.Sandbox)
+		z.New("your midtrans server key", midtrans.Sandbox)
 		// cekStatus, _ := z.CheckTransaction("your transaction code or token transaction here")
-		cekStatus, _ := z.CheckTransaction("FAUZISHOP-ORDER-ID-fhpBX6ABGsv32DM15Cn4")
+		cekStatus, _ := z.CheckTransaction("your token or order-id replace here")
 		log.Println(cekStatus.TransactionStatus)
 		log.Println(cekStatus.StatusMessage)
 		if cekStatus.TransactionStatus != "settlement" {
