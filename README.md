@@ -24,7 +24,7 @@ step 3 : go to setting -> access key , now you can see your api key
 
 so now we got server key api for fill this
 
-<img src="img.PNG"> br
+<img src="img.PNG"> <br>
 <img src="img1.PNG">
 
 - Run the project
