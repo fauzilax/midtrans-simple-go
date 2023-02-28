@@ -22,9 +22,10 @@ step 2 : change to <a href="https://dashboard.sandbox.midtrans.com/">Sanbox</a> 
 
 step 3 : go to setting -> access key , now you can see your api key
 
-so now we got all api for fill this
+so now we got server key api for fill this
 
-<img src="img.PNG" >
+<img src="img.PNG"> br
+<img src="img1.PNG">
 
 - Run the project
 ```
